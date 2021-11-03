@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Marten\Nette\JwtStorage\Security\JWT;
+namespace Marten\Nette\JwtStorage\JWT;
 
 use \DomainException;
 use Firebase\JWT\BeforeValidException;
@@ -11,7 +11,7 @@ use \UnexpectedValueException;
 
 /**
  * Interface meant to be implemented by a service which can encode and decode JWTs.
- * @package   Marten\Nette\JwtStorage\Security\JWT
+ * @package   Marten\Nette\JwtStorage\JWT
  * @author    Filip Klimes <filip@filipklimes.cz>
  */
 interface IJsonWebTokenService

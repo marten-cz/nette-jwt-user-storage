@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Marten\Nette\JwtStorage\Security\DI;
+namespace Marten\Nette\JwtStorage\DI;
 
 use Nette;
 use Nette\DI\CompilerExtension;
@@ -9,7 +9,7 @@ use Nette\Schema\Expect;
 
 /**
  * Nette DI extension which registers JWTUserStorage.
- * @package   Marten\Nette\JwtStorage\Security\DI
+ * @package   Marten\Nette\JwtStorage\DI
  * @author    Filip Klimes <filip@filipklimes.cz>
  */
 class JWTUserStorageExtension extends CompilerExtension
@@ -17,7 +17,7 @@ class JWTUserStorageExtension extends CompilerExtension
 	public function getConfigSchema(): Nette\Schema\Schema
 	{
 		return Expect::structure([
-			'identitySerializer' => Expect::string('Marten\Nette\JwtStorage\Security\IdentitySerializer'),
+			'identitySerializer' => Expect::string('Marten\Nette\JwtStorage\IdentitySerializer'),
 			'generateJti' => Expect::bool(true),
 			'generateIat' => Expect::bool(true),
 			'expiration' => Expect::string('20 days'),
@@ -33,11 +33,11 @@ class JWTUserStorageExtension extends CompilerExtension
 		$config = (array) $this->getConfig();
 
 		$builder->addDefinition($this->prefix('firebaseJWTWrapper'))
-			->setType('Marten\Nette\JwtStorage\Security\JWT\FirebaseJWTWrapper')
+			->setType('Marten\Nette\JwtStorage\JWT\FirebaseJWTWrapper')
 			->setArguments([isset($config['jwtLeeway']) ? ((int) $config['jwtLeeway']) : 0]);
 
 		$userStorageDefinition = $builder->addDefinition($this->prefix('jwtUserStorage'))
-			->setType('Marten\Nette\JwtStorage\Security\JWTUserStorage')
+			->setType('Marten\Nette\JwtStorage\JWTUserStorage')
 			->setArguments([$config['privateKey'], $config['algorithm']]);
 		$userStorageDefinition->addSetup('setGenerateIat', [$config['generateIat']]);
 		$userStorageDefinition->addSetup('setGenerateJti', [$config['generateJti']]);

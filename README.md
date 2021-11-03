@@ -1,9 +1,6 @@
 # nette-jwt-user-storage 
 
-[![Join the chat at https://gitter.im/klimesf/nette-jwt-user-storage](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/klimesf/nette-jwt-user-storage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Latest Stable Version](https://poser.pugx.org/klimesf/nette-jwt-user-storage/version)](https://packagist.org/packages/klimesf/nette-jwt-user-storage)
-[![License](https://poser.pugx.org/klimesf/nette-jwt-user-storage/license)](https://packagist.org/packages/klimesf/nette-jwt-user-storage)
-[![Build Status](https://travis-ci.org/klimesf/nette-jwt-user-storage.svg)](https://travis-ci.org/klimesf/nette-jwt-user-storage)
+[![Latest Stable Version](https://poser.pugx.org/klimesf/nette-jwt-user-storage/version)](https://packagist.org/packages/marten-cz/nette-jwt-user-storage)
 
 [![JWT](http://jwt.io/assets/badge-compatible.svg)](http://jwt.io/)
 
@@ -32,15 +29,15 @@ Register the extension in your `config.neon`.
 
 ```yml
 extensions:
-	jwtUserStorage: Klimesf\Security\DI\JWTUserStorageExtension
+  jwtUserStorage: Marten\Nette\JwtStorage\DI\JWTUserStorageExtension
 ```
 
 Then configure its required properties.
 
 ```yml
 JWTUserStorage:
-	privateKey: 'secret-cat'    # this secret is used to sign the JWT
-	algorithm: 'HS256'          # this is the signing algorithm
+  privateKey: 'secret-cat'    # this secret is used to sign the JWT
+  algorithm: 'HS256'          # this is the signing algorithm
 ```
 
 Both the JWT and the cookie in which it's stored is by default set to expire in 20 days. If you want to fiddle
@@ -48,9 +45,9 @@ with expiration time, use `expiration` option:
 
 ```yml
 JWTUserStorage:
-	expiration: 20 days     # sets JWT and cookie expiration time to 20 days (this is the default option)
-	expiration: 20 minutes  # sets JWT and cookie expiration time to 20 minutes
-	expiration: false       # sets JWT and cookie to never expire
+  expiration: 20 days     # sets JWT and cookie expiration time to 20 days (this is the default option)
+  expiration: 20 minutes  # sets JWT and cookie expiration time to 20 minutes
+  expiration: false       # sets JWT and cookie to never expire
 ```
 
 By default, `jti` and `iat` (see [JWT draft](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32)) are added
@@ -58,19 +55,19 @@ to your JWTs. If you don't want to use them, set `generateJti` and `generateIat`
 
 ```yml
 JWTUserStorage:
-	generateJti: false          # disables jti generation for your JWT access tokens
-	generateIat: false          # disables iat generation for your JWT access tokens
+  generateJti: false          # disables jti generation for your JWT access tokens
+  generateIat: false          # disables iat generation for your JWT access tokens
 ```
 
 If you want to define your own `Nette\Security\IIdentity` serializer, which serializes your identity implementation
-into the JWT body, you can implement `Klimesf\Security\IIdentitySerializer`
+into the JWT body, you can implement `Marten\Nette\JwtStorage\\IIdentitySerializer`
 
 ```
 namespace Your\Own;
 
-class IdentitySerializer implements \Klimesf\Security\IIdentitySerializer
+class IdentitySerializer implements \Marten\Nette\JwtStorage\Security\IIdentitySerializer
 {
-	// ...
+  // ...
 }
 ```
 
@@ -78,7 +75,7 @@ and register it in configuration.
 
 ```yml
 JWTUserStorage:
-	identitySerializer: Your\Own\IdentitySerializer
+  identitySerializer: Your\Own\IdentitySerializer
 ```
 
 

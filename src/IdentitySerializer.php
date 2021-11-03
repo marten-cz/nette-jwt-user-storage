@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Marten\Nette\JwtStorage\Security;
+namespace Marten\Nette\JwtStorage;
 
 use Nette\Security\Identity;
 use Nette\Security\IIdentity;
 
 /**
- * @package   Marten\Nette\JwtStorage\Security
+ * @package   Marten\Nette\JwtStorage
  * @author    Filip Klimes <filip@filipklimes.cz>
  * @copyright 2015, Startupedia s.r.o.
  */

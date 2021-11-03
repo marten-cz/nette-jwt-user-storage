@@ -26,8 +26,8 @@
         "vimeo/psalm": "^3.8"
     },
     "autoload": {
-        "psr-0": {
-            "Marten\\Nette\\JwtStorage": "src/"
+        "psr-4": {
+            "Marten\\Nette\\JwtStorage\\": "src"
         }
     }
 }
