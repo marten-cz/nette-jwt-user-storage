@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Klimesf\Security;
+namespace Marten\Nette\JwtStorage\Security;
 
 use Nette\Security\Identity;
 use Nette\Security\IIdentity;
 
 /**
- * @package   Klimesf\Security
+ * @package   Marten\Nette\JwtStorage\Security
  * @author    Filip Klimes <filip@filipklimes.cz>
  * @copyright 2015, Startupedia s.r.o.
  */

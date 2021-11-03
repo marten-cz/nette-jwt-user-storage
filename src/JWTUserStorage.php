@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Klimesf\Security;
+namespace Marten\Nette\JwtStorage\Security;
 
 use Firebase\JWT\ExpiredException;
-use Klimesf\Security\JWT\IJsonWebTokenService;
+use Marten\Nette\JwtStorage\Security\JWT\IJsonWebTokenService;
 use Nette\Http\IRequest;
 use Nette\Http\IResponse;
 use Nette\Security\IIdentity;
@@ -14,7 +14,7 @@ use Nette\Utils\DateTime;
 use Nette\Utils\Random;
 
 /**
- * @package   Klimesf\Security
+ * @package   Marten\Nette\JwtStorage\Security
  * @author    Filip Klimes <filip@filipklimes.cz>
  */
 class JWTUserStorage implements IUserStorage

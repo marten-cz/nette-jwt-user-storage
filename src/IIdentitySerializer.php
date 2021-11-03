@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Klimesf\Security;
+namespace Marten\Nette\JwtStorage\Security;
 
 use Nette\Security\IIdentity;
 
 /**
  * Interface for IIdentity serializer used to serialize your implementation
  * of Nette\Security\IIdentity and store the data in the JWT access token.
- * @package   Klimesf\Security
+ * @package   Marten\Nette\JwtStorage\Security
  * @author    Filip Klimes <filip@filipklimes.cz>
  */
 interface IIdentitySerializer
