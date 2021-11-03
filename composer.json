@@ -1,9 +1,13 @@
 {
-    "name": "klimesf/nette-jwt-user-storage",
+    "name": "marten-cz/nette-jwt-user-storage",
     "description": "Nette IUserStorage implementation using JWT instead of sessions.",
     "type": "library",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Martin Malek",
+            "email": "github@marten-online.com"
+        },
         {
             "name": "Filip Klimes",
             "email": "filip@filipklimes.cz"
@@ -23,7 +27,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Klimesf\\Security": "src/"
+            "Marten\\Nette\\JwtStorage": "src/"
         }
     }
 }

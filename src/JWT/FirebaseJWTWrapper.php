@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Klimesf\Security\JWT;
+namespace Marten\Nette\JwtStorage\Security\JWT;
 
 use DomainException;
 use Firebase\JWT\BeforeValidException;
@@ -12,7 +12,7 @@ use UnexpectedValueException;
 
 /**
  * Wraps statis Firebase's JWT implementation.
- * @package   Klimesf\Security\JWT
+ * @package   Marten\Nette\JwtStorage\Security\JWT
  * @author    Filip Klimes <filip@filipklimes.cz>
  */
 class FirebaseJWTWrapper implements IJsonWebTokenService
